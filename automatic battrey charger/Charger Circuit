@@ -1,0 +1,3 @@
+Here is a 12 volt lead acid automatic battery charger that shut off the charging process once the battery attains full charge. This prevents overcharging of the battery so that, the charger can be left unattended.
+
+If the terminal voltage of the battery reduces below the set level, say 13.5 volts, the circuit automatically turns on to the charge mode.
