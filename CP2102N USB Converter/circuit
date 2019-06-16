@@ -1,0 +1,5 @@
+The CP210x USB to UART Bridge Virtual COM Port (VCP) drivers are required 
+for device operation as a Virtual COM Port to facilitate host communication with CP210x products. 
+These devices can also interface to a host using the direct access driver.
+
+https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
