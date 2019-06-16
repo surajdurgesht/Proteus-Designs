@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"uart.obj" 
+TO "uart" 
+RAMSIZE(256) 
+CODE( 0X0000-0XFFFF )
+XDATA( 0X0000-0X06FF )

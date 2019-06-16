@@ -1,0 +1,239 @@
+BL51 BANKED LINKER/LOCATER V6.02                                                        10/24/2018  17:42:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.02, INVOKED BY:
+D:\SOFTWARE\KEILC51\C51\BIN\BL51.EXE STARTUP.obj, uart.obj TO uart RAMSIZE (256) CODE (0X0000-0XFFFF) XDATA (0X0000-0X06
+>> FF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  uart.obj (UART)
+  D:\SOFTWARE\KEILC51\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  uart (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            DATA    000BH     0001H     UNIT         ?DT?UART
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     005FH     UNIT         ?PR?MAIN?UART
+            CODE    085FH     0043H     UNIT         ?CO?UART
+            CODE    08A2H     0025H     UNIT         ?PR?_UART_MSG?UART
+            CODE    08C7H     0020H     UNIT         ?PR?_DELAY?UART
+            CODE    08E7H     0019H     UNIT         ?C?LIB_CODE
+            CODE    0900H     000CH     UNIT         ?C_C51STARTUP
+            CODE    090CH     0009H     UNIT         ?PR?TIMER_INIT?UART
+            CODE    0915H     0008H     UNIT         ?PR?_UART_TX?UART
+            CODE    091DH     0008H     UNIT         ?PR?UART_RX?UART
+            CODE    0925H     0006H     UNIT         ?PR?UART_INIT?UART
+            CODE    092BH     0005H     UNIT         ?PR?N_LINE?UART
+
+
+
+OVERLAY MAP OF MODULE:   uart (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?UART
+
+?PR?MAIN?UART                  -----    -----
+  +--> ?PR?UART_INIT?UART
+  +--> ?CO?UART
+  +--> ?PR?_UART_MSG?UART
+  +--> ?PR?N_LINE?UART
+  +--> ?PR?_DELAY?UART
+BL51 BANKED LINKER/LOCATER V6.02                                                      10/24/2018  17:42:19  PAGE 2
+
+
+  +--> ?PR?UART_RX?UART
+  +--> ?PR?_UART_TX?UART
+
+?PR?UART_INIT?UART             -----    -----
+  +--> ?PR?TIMER_INIT?UART
+
+?PR?_UART_MSG?UART             0008H    0003H
+  +--> ?PR?_UART_TX?UART
+
+?PR?N_LINE?UART                -----    -----
+  +--> ?PR?_UART_TX?UART
+
+
+
+SYMBOL TABLE OF MODULE:  uart (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0900H         SEGMENT       ?C_C51STARTUP
+  I:000CH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0903H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0900H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0900H         LINE#         133
+  C:0902H         LINE#         134
+  C:0903H         LINE#         135
+  C:0904H         LINE#         136
+  C:0906H         LINE#         185
+  C:0909H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:091DH         PUBLIC        uart_rx
+  C:0915H         PUBLIC        _uart_tx
+BL51 BANKED LINKER/LOCATER V6.02                                                      10/24/2018  17:42:19  PAGE 3
+
+
+  C:08C7H         PUBLIC        _delay
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:0800H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:090CH         PUBLIC        timer_init
+  D:008DH         PUBLIC        TH1
+  C:0925H         PUBLIC        uart_init
+  B:0088H.6       PUBLIC        TR1
+  C:08A2H         PUBLIC        _uart_msg
+  D:000BH         PUBLIC        tx_data
+  C:092BH         PUBLIC        n_line
+  -------         PROC          MAIN
+  C:0800H         LINE#         17
+  C:0800H         LINE#         18
+  C:0800H         LINE#         19
+  C:0803H         LINE#         20
+  C:080CH         LINE#         21
+  C:080FH         LINE#         22
+  C:0816H         LINE#         23
+  C:081FH         LINE#         24
+  C:0826H         LINE#         25
+  C:0829H         LINE#         26
+  C:0832H         LINE#         27
+  C:0835H         LINE#         28
+  C:0835H         LINE#         29
+  C:0835H         LINE#         30
+  C:083EH         LINE#         31
+  C:0843H         LINE#         32
+  C:0846H         LINE#         33
+  C:0849H         LINE#         34
+  C:0852H         LINE#         35
+  C:0857H         LINE#         36
+  C:085AH         LINE#         37
+  C:085DH         LINE#         38
+  -------         ENDPROC       MAIN
+  -------         PROC          UART_INIT
+  C:0925H         LINE#         41
+  C:0925H         LINE#         42
+  C:0925H         LINE#         43
+  C:0928H         LINE#         44
+  -------         ENDPROC       UART_INIT
+  -------         PROC          TIMER_INIT
+  C:090CH         LINE#         47
+  C:090CH         LINE#         48
+  C:090CH         LINE#         49
+  C:090FH         LINE#         50
+  C:0912H         LINE#         51
+  C:0914H         LINE#         52
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          _UART_TX
+  D:0007H         SYMBOL        x
+  C:0915H         LINE#         54
+  C:0915H         LINE#         55
+  C:0915H         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.02                                                      10/24/2018  17:42:19  PAGE 4
+
+
+  C:0917H         LINE#         57
+  C:091AH         LINE#         58
+  C:091CH         LINE#         59
+  -------         ENDPROC       _UART_TX
+  -------         PROC          UART_RX
+  -------         DO            
+  D:0007H         SYMBOL        z
+  -------         ENDDO         
+  C:091DH         LINE#         61
+  C:091DH         LINE#         62
+  C:091DH         LINE#         64
+  C:0920H         LINE#         65
+  C:0922H         LINE#         66
+  C:0924H         LINE#         67
+  C:0924H         LINE#         68
+  -------         ENDPROC       UART_RX
+  -------         PROC          _UART_MSG
+  D:0008H         SYMBOL        c
+  C:08A2H         LINE#         70
+  C:08A8H         LINE#         71
+  C:08A8H         LINE#         72
+  C:08B3H         LINE#         73
+  C:08B3H         LINE#         74
+  C:08C4H         LINE#         75
+  C:08C6H         LINE#         76
+  -------         ENDPROC       _UART_MSG
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08C7H         LINE#         78
+  C:08C7H         LINE#         79
+  C:08C7H         LINE#         81
+  C:08D1H         LINE#         82
+  C:08E6H         LINE#         83
+  -------         ENDPROC       _DELAY
+  -------         PROC          N_LINE
+  C:092BH         LINE#         85
+  C:092BH         LINE#         86
+  C:092BH         LINE#         87
+  -------         ENDPROC       N_LINE
+  -------         ENDMOD        UART
+
+  -------         MODULE        ?C?CLDPTR
+  C:08E7H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 011AH BYTE (13%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=307
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
