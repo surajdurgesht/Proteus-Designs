@@ -1,0 +1,49 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              09/20/2018 23:15:06 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN Main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          /*  Name     : main.c
+   2           *  Purpose  : Main file for i2c code for AT89C51.
+   3           *  Author   : M.Saeed Yasin
+   4           *  Date     : 05-11-12
+   5           *  Website  : saeedsolutions.blogspot.com
+   6           *  Revision : None
+   7           */
+   8          #include "Includes.h"
+   9          
+  10          // Main function
+  11          void main()
+  12          { 
+  13   1        unsigned char RxByte = 0;
+  14   1      
+  15   1        InitI2C();          // Initialize i2c pins                
+  16   1      
+  17   1        I2C_Start();        // Send start bit on i2c
+  18   1        I2C_Write_Byte(0xB0);   // Send 0xA0 on i2c
+  19   1        RxByte = I2C_Read_Byte(); // Read value from i2c
+  20   1        I2C_Send_ACK();       // Send ACK bit on i2c
+  21   1        I2C_Stop();         // Send stop bit on i2c
+  22   1        
+  23   1        while(1)
+  24   1        { 
+  25   2        }
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     27    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

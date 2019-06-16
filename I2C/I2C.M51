@@ -1,0 +1,279 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/20/2018  23:15:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE I2C.obj, Main.obj TO I2C
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  I2C.obj (I2C)
+  Main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  I2C (I2C)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0055H     UNIT         ?C?LIB_CODE
+            CODE    0855H     0043H     UNIT         ?PR?_I2C_WRITE_BYTE?I2C
+            CODE    0898H     002EH     UNIT         ?PR?I2C_READ_BYTE?I2C
+            CODE    08C6H     0026H     UNIT         ?PR?___DELAY_US?I2C
+            CODE    08ECH     001BH     UNIT         ?PR?MAIN?MAIN
+            CODE    0907H     0014H     UNIT         ?PR?I2C_START?I2C
+            CODE    091BH     0013H     UNIT         ?PR?I2C_RESTART?I2C
+            CODE    092EH     0013H     UNIT         ?PR?I2C_STOP?I2C
+            CODE    0941H     0013H     UNIT         ?PR?I2C_SEND_ACK?I2C
+            CODE    0954H     0013H     UNIT         ?PR?I2C_SEND_NACK?I2C
+            CODE    0967H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0973H     0005H     UNIT         ?PR?INITI2C?I2C
+
+
+
+OVERLAY MAP OF MODULE:   I2C (I2C)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                   0008H    0001H
+  +--> ?PR?INITI2C?I2C
+  +--> ?PR?I2C_START?I2C
+  +--> ?PR?_I2C_WRITE_BYTE?I2C
+  +--> ?PR?I2C_READ_BYTE?I2C
+  +--> ?PR?I2C_SEND_ACK?I2C
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/20/2018  23:15:06  PAGE 2
+
+
+  +--> ?PR?I2C_STOP?I2C
+
+?PR?I2C_START?I2C               -----    -----
+  +--> ?PR?___DELAY_US?I2C
+
+?PR?_I2C_WRITE_BYTE?I2C         -----    -----
+  +--> ?PR?___DELAY_US?I2C
+
+?PR?I2C_READ_BYTE?I2C           -----    -----
+  +--> ?PR?___DELAY_US?I2C
+
+?PR?I2C_SEND_ACK?I2C            -----    -----
+  +--> ?PR?___DELAY_US?I2C
+
+?PR?I2C_STOP?I2C                -----    -----
+  +--> ?PR?___DELAY_US?I2C
+
+
+
+SYMBOL TABLE OF MODULE:  I2C (I2C)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        I2C
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0898H         PUBLIC        I2C_Read_Byte
+  C:08D3H         PUBLIC        ___delay_us
+  C:0855H         PUBLIC        _I2C_Write_Byte
+  C:0954H         PUBLIC        I2C_Send_NACK
+  C:0907H         PUBLIC        I2C_Start
+  C:092EH         PUBLIC        I2C_Stop
+  C:0973H         PUBLIC        InitI2C
+  B:00A0H.0       PUBLIC        SDA
+  C:0941H         PUBLIC        I2C_Send_ACK
+  B:00A0H.1       PUBLIC        SCK
+  C:091BH         PUBLIC        I2C_ReStart
+  C:08CAH         SYMBOL        L?0027
+  C:08CFH         SYMBOL        L?0028
+  -------         PROC          L?0026
+  -------         ENDPROC       L?0026
+  C:08CAH         SYMBOL        L?0027
+  C:08CFH         SYMBOL        L?0028
+  -------         PROC          ___DELAY_US
+  D:0006H         SYMBOL        d
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0006H         SYMBOL        limit
+  -------         ENDDO         
+  C:08D3H         LINE#         4
+  C:08D3H         LINE#         5
+  C:08D3H         LINE#         7
+  C:08DAH         LINE#         9
+  C:08EBH         LINE#         10
+  -------         ENDPROC       ___DELAY_US
+  -------         PROC          INITI2C
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/20/2018  23:15:06  PAGE 3
+
+
+  C:0973H         LINE#         14
+  C:0973H         LINE#         15
+  C:0973H         LINE#         17
+  C:0975H         LINE#         18
+  C:0977H         LINE#         19
+  -------         ENDPROC       INITI2C
+  -------         PROC          I2C_START
+  C:0907H         LINE#         23
+  C:0907H         LINE#         24
+  C:0907H         LINE#         25
+  C:0909H         LINE#         26
+  C:090BH         LINE#         27
+  C:0912H         LINE#         28
+  C:0914H         LINE#         29
+  -------         ENDPROC       I2C_START
+  -------         PROC          I2C_RESTART
+  C:091BH         LINE#         34
+  C:091BH         LINE#         35
+  C:091BH         LINE#         36
+  C:091DH         LINE#         38
+  C:0920H         LINE#         40
+  C:0922H         LINE#         42
+  C:0922H         LINE#         43
+  C:0922H         LINE#         44
+  C:0925H         LINE#         45
+  C:0927H         LINE#         46
+  -------         ENDPROC       I2C_RESTART
+  -------         PROC          I2C_STOP
+  C:092EH         LINE#         51
+  C:092EH         LINE#         52
+  C:092EH         LINE#         53
+  C:0930H         LINE#         55
+  C:0933H         LINE#         57
+  C:0935H         LINE#         59
+  C:0935H         LINE#         60
+  C:0935H         LINE#         61
+  C:0938H         LINE#         62
+  C:093AH         LINE#         63
+  -------         ENDPROC       I2C_STOP
+  -------         PROC          I2C_SEND_ACK
+  C:0941H         LINE#         69
+  C:0941H         LINE#         70
+  C:0941H         LINE#         71
+  C:0943H         LINE#         72
+  C:0946H         LINE#         74
+  C:0948H         LINE#         75
+  C:094BH         LINE#         76
+  C:094DH         LINE#         77
+  -------         ENDPROC       I2C_SEND_ACK
+  -------         PROC          I2C_SEND_NACK
+  C:0954H         LINE#         82
+  C:0954H         LINE#         83
+  C:0954H         LINE#         84
+  C:0956H         LINE#         85
+  C:0959H         LINE#         87
+  C:095BH         LINE#         88
+  C:095EH         LINE#         89
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/20/2018  23:15:06  PAGE 4
+
+
+  C:0960H         LINE#         90
+  -------         ENDPROC       I2C_SEND_NACK
+  -------         PROC          _I2C_WRITE_BYTE
+  D:0003H         SYMBOL        Byte
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0855H         LINE#         95
+  C:0857H         LINE#         96
+  C:0857H         LINE#         99
+  C:0859H         LINE#         100
+  C:0859H         LINE#         101
+  C:085BH         LINE#         103
+  C:085EH         LINE#         106
+  C:086BH         LINE#         107
+  C:086FH         LINE#         109
+  C:0871H         LINE#         111
+  C:0874H         LINE#         112
+  C:0876H         LINE#         113
+  C:087DH         LINE#         114
+  C:0881H         LINE#         117
+  C:0883H         LINE#         118
+  C:0885H         LINE#         119
+  C:088CH         LINE#         120
+  C:088EH         LINE#         121
+  C:0895H         LINE#         123
+  C:0897H         LINE#         124
+  -------         ENDPROC       _I2C_WRITE_BYTE
+  -------         PROC          I2C_READ_BYTE
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0001H         SYMBOL        d
+  D:0003H         SYMBOL        RxData
+  -------         ENDDO         
+  C:0898H         LINE#         128
+  C:0898H         LINE#         129
+  C:0898H         LINE#         130
+  C:089AH         LINE#         132
+  C:089BH         LINE#         133
+  C:089BH         LINE#         134
+  C:089DH         LINE#         135
+  C:089FH         LINE#         136
+  C:08A3H         LINE#         137
+  C:08A3H         LINE#         138
+  C:08A6H         LINE#         139
+  C:08ABH         LINE#         140
+  C:08BCH         LINE#         141
+  C:08BFH         LINE#         142
+  C:08C3H         LINE#         144
+  C:08C5H         LINE#         145
+  -------         ENDPROC       I2C_READ_BYTE
+  -------         ENDMOD        I2C
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:08ECH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/20/2018  23:15:06  PAGE 5
+
+
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        RxByte
+  -------         ENDDO         
+  C:08ECH         LINE#         11
+  C:08ECH         LINE#         12
+  C:08ECH         LINE#         13
+  C:08EFH         LINE#         15
+  C:08F2H         LINE#         17
+  C:08F5H         LINE#         18
+  C:08FAH         LINE#         19
+  C:08FFH         LINE#         20
+  C:0902H         LINE#         21
+  C:0905H         LINE#         23
+  C:0905H         LINE#         24
+  C:0905H         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?UIDIV
+  C:0800H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_RESTART?I2C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_SEND_NACK?I2C
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0117H BYTE (13%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=379
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
