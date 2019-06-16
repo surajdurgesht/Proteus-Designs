@@ -1,0 +1,3 @@
+This shows you how to build an Arduino compatible pcb board 
+with an Atmel Atmega8/168/328 AVR microcontroller and FTDI FT232 breakout board from SparkFun.
+You could also use the Arduino USB Mini.
