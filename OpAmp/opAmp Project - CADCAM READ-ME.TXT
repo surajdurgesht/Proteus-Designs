@@ -1,0 +1,45 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'opAmp Project.pdsprj'.
+CADCAM generated at 7:48:50 PM on Wednesday, October 24, 2018.
+
+File List
+---------
+Top Copper              : opAmp Project - CADCAM Top Copper.GBR
+Mechanical 1            : opAmp Project - CADCAM Mechanical 1.GBR
+Drill, Plated, 1-16     : opAmp Project - CADCAM Drill TOP-BOT Plated.GBR
+Netlist                 : opAmp Project - CADCAM Netlist.IPC
+
+Photoplotter Setup
+------------------
+Format: X2, ASCII, 4.3, metric, absolute, eob=*, LZO
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer, I=Index
+
+D10	CIRCLE  D=0.254mm                                                         DRAW  Conductor
+D11	CIRCLE  D=0.762mm                                                         FLASH ViaPad
+D12	SQUARE  S=2.032mm                                                         FLASH ComponentPad
+D13	RECT    W=0.5588mm            H=0.6096mm                                  FLASH SMDPad,CuDef
+D14	RECT    W=0.6096mm            H=0.5588mm                                  FLASH SMDPad,CuDef
+D15	SQUARE  S=0.6096mm                                                        FLASH SMDPad,CuDef
+D16	RECT    W=1.016mm             H=1.524mm                                   FLASH SMDPad,CuDef
+D17	SQUARE  S=1.651mm                                                         FLASH SMDPad,CuDef
+D18	SQUARE  S=1.27mm                                                          FLASH ComponentPad
+D19	CIRCLE  D=1.27mm                                                          FLASH ComponentPad
+D70	CIRCLE  D=0.2032mm                                                        DRAW  Profile
+D71	CIRCLE  D=0.381mm                                                         FLASH ViaDrill
+D20	CIRCLE  D=1.016mm                                                         FLASH ComponentDrill
+D21	CIRCLE  D=0.762mm                                                         FLASH ComponentDrill
+
+Layer Stackup
+-------------
+Top Solder Resist        : 0.01mm     Resist
+Top Copper               : 0.018mm    Copper
+Core                     : 1.55mm     FR4
+Bottom Copper            : 0.018mm    Copper
+Bottom Solder Resist     : 0.01mm     Resist
+
+
+[END OF FILE]
