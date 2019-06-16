@@ -1,0 +1,280 @@
+C51 COMPILER V8.05a   MCP3204_BIT_BANGING                                                  10/24/2018 17:51:43 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE MCP3204_BIT_BANGING
+OBJECT MODULE PLACED IN mcp3204_bit_banging.OBJ
+COMPILER INVOKED BY: D:\Software\Keilc51\C51\BIN\C51.EXE mcp3204_bit_banging.c BROWSE MODP2 DEBUG OBJECTEXTEND
+
+line level    source
+
+   1                                                                                                          #include <reg52.h>
+   2          #include <stdio.h>
+   3          #include <intrins.h>
+   4          
+   5          sbit cs=P1^7;    // to CS/SHDN of MCP3204
+   6          sbit miso=P1^6;  // to dout of MCP3204
+   7          sbit mosi=P1^5;  // to din of MCP3204
+   8          sbit clk=P1^4;   // to clk of MCP3204
+   9          
+  10          void uart_init(void);
+  11          void delay_ms(unsigned int);
+  12          void delay_us(void);
+  13          float read_adc(unsigned int);
+  14          
+  15          void main(void)
+  16          {
+  17   1      
+  18   1              uart_init();
+  19   1              printf( "Welcome");
+  20   1              printf("\n\r");
+  21   1      
+  22   1      while(1)
+  23   1      {
+  24   2              printf("voltage of channel 0 is : %f ",read_adc(0));
+  25   2              printf("\n\r");
+  26   2              delay_ms(100);
+  27   2              printf("voltage of channel 1 is : %f ",read_adc(1));
+  28   2              printf("\n\r");
+  29   2              delay_ms(100);
+  30   2              printf("voltage of channel 2 is : %f ",read_adc(2));
+  31   2              printf("\n\r");
+  32   2              delay_ms(100);
+  33   2              printf("voltage of channel 3 is : %f ",read_adc(3));
+  34   2              printf("\n\r");
+  35   2              delay_ms(100);
+  36   2      
+  37   2      }
+  38   1      }
+  39          float read_adc(unsigned int channel)
+  40          {
+  41   1      float result;
+  42   1              unsigned int value;
+  43   1              unsigned char i;
+  44   1              value=0x00;
+  45   1      
+  46   1              if(channel==0)
+  47   1              {
+  48   2      // for channel 0
+  49   2      // for startup
+  50   2              cs=1;
+  51   2              clk=1;
+  52   2              mosi=1;
+  53   2              miso=1;
+  54   2      // for start bit
+  55   2              cs=0;
+C51 COMPILER V8.05a   MCP3204_BIT_BANGING                                                  10/24/2018 17:51:43 PAGE 2   
+
+  56   2              mosi=1;
+  57   2              clk=0;
+  58   2              delay_us();
+  59   2              clk=1;
+  60   2      //for single end/differential mode selection
+  61   2        mosi=1;
+  62   2              clk=0;
+  63   2              delay_us();
+  64   2              clk=1;
+  65   2      
+  66   2      // for  d2
+  67   2               mosi=0;
+  68   2              clk=0;
+  69   2              delay_us();
+  70   2              clk=1;
+  71   2      
+  72   2      // for  d1
+  73   2               mosi=0;
+  74   2              clk=0;
+  75   2              delay_us();
+  76   2              clk=1;
+  77   2      
+  78   2      // for  d0
+  79   2               mosi=0;
+  80   2              clk=0;
+  81   2              delay_us();
+  82   2              clk=1;
+  83   2      }
+  84   1      if(channel==1)
+  85   1              {
+  86   2                      // for channel 1
+  87   2      // for startup
+  88   2              cs=1;
+  89   2              clk=1;
+  90   2              mosi=1;
+  91   2              miso=1;
+  92   2      // for start bit
+  93   2              cs=0;
+  94   2              mosi=1;
+  95   2              clk=0;
+  96   2              delay_us();
+  97   2              clk=1;
+  98   2      //for single end/differential mode selection
+  99   2        mosi=1;
+ 100   2              clk=0;
+ 101   2              delay_us();
+ 102   2              clk=1;
+ 103   2      
+ 104   2      // for  d2
+ 105   2               mosi=0;
+ 106   2              clk=0;
+ 107   2              delay_us();
+ 108   2              clk=1;
+ 109   2      
+ 110   2      // for  d1
+ 111   2               mosi=0;
+ 112   2              clk=0;
+ 113   2              delay_us();
+ 114   2              clk=1;
+ 115   2      
+ 116   2      // for  d0
+ 117   2               mosi=1;
+C51 COMPILER V8.05a   MCP3204_BIT_BANGING                                                  10/24/2018 17:51:43 PAGE 3   
+
+ 118   2              clk=0;
+ 119   2              delay_us();
+ 120   2              clk=1;
+ 121   2      }
+ 122   1              if(channel==2)
+ 123   1              {
+ 124   2                      // for channel 2
+ 125   2      // for startup
+ 126   2              cs=1;
+ 127   2              clk=1;
+ 128   2              mosi=1;
+ 129   2              miso=1;
+ 130   2      // for start bit
+ 131   2              cs=0;
+ 132   2              mosi=1;
+ 133   2              clk=0;
+ 134   2              delay_us();
+ 135   2              clk=1;
+ 136   2      //for single end/differential mode selection
+ 137   2        mosi=1;
+ 138   2              clk=0;
+ 139   2              delay_us();
+ 140   2              clk=1;
+ 141   2      
+ 142   2      // for  d2
+ 143   2               mosi=0;
+ 144   2              clk=0;
+ 145   2              delay_us();
+ 146   2              clk=1;
+ 147   2      
+ 148   2      // for  d1
+ 149   2               mosi=1;
+ 150   2              clk=0;
+ 151   2              delay_us();
+ 152   2              clk=1;
+ 153   2      
+ 154   2      // for  d0
+ 155   2               mosi=0;
+ 156   2              clk=0;
+ 157   2              delay_us();
+ 158   2              clk=1;
+ 159   2      }
+ 160   1              if(channel==3)
+ 161   1                      {
+ 162   2                      // for channel 3
+ 163   2      // for startup
+ 164   2              cs=1;
+ 165   2              clk=1;
+ 166   2              mosi=1;
+ 167   2              miso=1;
+ 168   2      // for start bit
+ 169   2              cs=0;
+ 170   2              mosi=1;
+ 171   2              clk=0;
+ 172   2              delay_us();
+ 173   2              clk=1;
+ 174   2      //for single end/differential mode selection
+ 175   2        mosi=1;
+ 176   2              clk=0;
+ 177   2              delay_us();
+ 178   2              clk=1;
+ 179   2      
+C51 COMPILER V8.05a   MCP3204_BIT_BANGING                                                  10/24/2018 17:51:43 PAGE 4   
+
+ 180   2      // for  d2
+ 181   2               mosi=0;
+ 182   2              clk=0;
+ 183   2              delay_us();
+ 184   2              clk=1;
+ 185   2      
+ 186   2      // for  d1
+ 187   2               mosi=1;
+ 188   2              clk=0;
+ 189   2              delay_us();
+ 190   2              clk=1;
+ 191   2      
+ 192   2      // for  d0
+ 193   2               mosi=1;
+ 194   2              clk=0;
+ 195   2              delay_us();
+ 196   2              clk=1;
+ 197   2      }
+ 198   1              // for t sample
+ 199   1        clk=0;
+ 200   1              delay_us();
+ 201   1              clk=1;
+ 202   1      
+ 203   1        // for ignoring null bit
+ 204   1        clk=0;
+ 205   1              delay_us();
+ 206   1              clk=1;
+ 207   1      
+ 208   1      for(i=0;i<12;i++)
+ 209   1      {
+ 210   2              value<<=1;
+ 211   2              clk=0;
+ 212   2              if(miso==1)
+ 213   2      {
+ 214   3      value=value+1;
+ 215   3      }
+ 216   2       else
+ 217   2      {
+ 218   3      value=value+0;
+ 219   3      }
+ 220   2      clk=1;
+ 221   2      
+ 222   2      
+ 223   2      }
+ 224   1      cs=1;
+ 225   1      result= ((value*5.0)/4096);
+ 226   1      return (result);
+ 227   1      
+ 228   1      }
+ 229          
+ 230          
+ 231          
+ 232          void delay_ms(unsigned int time)
+ 233          {
+ 234   1      unsigned int i,j;
+ 235   1      for(i=0;i<time;i++)
+ 236   1      for(j=0;j<1275;j++);
+ 237   1      }
+ 238          void delay_us(void)
+ 239           {
+ 240   1        _nop_ ();  // generates delay of one machine cycle
+ 241   1      
+C51 COMPILER V8.05a   MCP3204_BIT_BANGING                                                  10/24/2018 17:51:43 PAGE 5   
+
+ 242   1       }
+ 243          void uart_init(void)
+ 244          {
+ 245   1                SCON = 0x52;   // setup serial port control
+ 246   1                TMOD = 0x20;   // hardware (9600 BAUD @11.05592MHZ)
+ 247   1                TH1 = 0xFD;   // TH1
+ 248   1                TR1 = 1;               // Timer 1 on
+ 249   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    487    ----
+   CONSTANT SIZE    =    131    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

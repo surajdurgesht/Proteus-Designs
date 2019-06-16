@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"mcp3204_bit_banging.obj" 
+TO "mpc3204" 
+RAMSIZE(256) 
+CODE( 0X0000-0XFFFF )
+XDATA( 0X0000-0X06FF )

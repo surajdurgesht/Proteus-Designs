@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"mcp3204_bit_banging.obj" 
+TO "mcp3204_bit_banging" 
+RAMSIZE(256) 
