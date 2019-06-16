@@ -1,0 +1,4 @@
+The integrated chip LM386 is a low power audio frequency 
+amplifier requiring a low level power supply (most often batteries). It comes in an 8-pin mini-DIP package. 
+The IC is designed to deliver a voltage amplification of 20 without external add-on parts.
+But this voltage gain can be raised up to 200 (Vu = 200) by adding external parts.
