@@ -1,0 +1,4 @@
+The problem here is that the voltage will change significantly when the battery is charged.
+There is no straight-forward way to determine the "idle" voltage of the battery while it is charging.
+Thus, implementing this requires some heuristic to approach the desired voltage as precisely as possible.
+Furthermore, the user must also provide a "recharge threshold voltage", which will certainly overstrain non-expert users.
