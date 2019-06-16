@@ -1,0 +1,6 @@
+This is a simple circuit that will indicate a low voltage on a 12V lead acid battery.
+Many that have golf carts, small EV’s, RV’s, or solar power banks for homes have a number of 12V lead acid batteries
+to maintain and this circuit will help protect your investment while not using these batteries. When stored, batteries 
+will self discharge, and if left for too long, will self-discharge to a damaging level. This circuit will light an LED when 
+the battery voltage decreases to 11.6V. 
+When the LED turns on, you’ know it is time to charge the battery to prevent the battery from dying on the shelf.
